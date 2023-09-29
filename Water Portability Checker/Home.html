@@ -3,29 +3,17 @@
 <head>
     <title>Water Portability Checker</title>
     <!-- Include Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <body>
     <div class="container">
-        <h1 class="mt-5 mb-4">Water Portability Checker</h1>
-        <form action="/predict" method="post">
-            <div class="form-group">
-                <label for="ph">pH Level:</label>
-                <input type="text" class="form-control" id="ph" name="ph" required>
-            </div>
-
-            <div class="form-group">
-                <label for="turbidity">Turbidity:</label>
-                <input type="text" class="form-control" id="turbidity" name="turbidity" required>
-            </div>
-
-            <div class="form-group">
-                <label for="temperature">Temperature:</label>
-                <input type="text" class="form-control" id="temperature" name="temperature" required>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Check Portability</button>
-        </form>
+        <div class="app-header">
+            <h1 class="mt-5 mb-4">Water Portability Checker</h1>
+        </div>
+        
+        <div class="main_btn">
+            <button class="btn btn-primary">Check Portability</button><br/><br/>
+            <button class="btn btn-primary">Tips To Increase Portability</button>
+        </div>
     </div>
 
     <!-- Include Bootstrap JS (Optional) -->
