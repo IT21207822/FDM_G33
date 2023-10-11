@@ -1,28 +1,30 @@
 from flask import Flask , render_template , request
-import pickle
-
-app = Flask(__name__ )
-#load the model 
-
-model = pickle.load(open('saved_model.sav' , 'rb'))
+import pickle #Importing the relevant Libraries
 
 
-@app.route('/')
+app = Flask(__name__ ) #Create Flask application Instance
+
+
+
+model = pickle.load(open('saved_model.sav' , 'rb')) #Loading the model
+
+
+@app.route('/') #Flask route to render Home page
 def home():
     
   
     return render_template('Home.html', **locals())
 
-@app.route('/Form.html')
+@app.route('/Form.html') #Flask route to render Form
 def form():
     
     
     return render_template('Form.html')
 
-@app.route('/portability' , methods = ['POST' , 'GET'])
+@app.route('/portability' , methods = ['POST' , 'GET']) #Flask route to render form result 
 def portability():
     
-    ph = float(request.form['ph'])
+    ph = float(request.form['ph']) #converting form field data to floating point numbers
     hardness = float(request.form['hardness'])
     solids = float(request.form['solids'])
     chloramines = float(request.form['chloramines'])
@@ -32,13 +34,26 @@ def portability():
     trihalomethanes = float(request.form['trihalomethanes'])
     turbidity = float(request.form['turbidity'])
     
+    #Making prediction based on input feature values
     result = model.predict([[ph , hardness , solids , chloramines , sulfate , conductivity , organic_carbon , trihalomethanes , turbidity]])
     
-    result_str = 'portable' if result == 1 else 'not portable'
+    if result == 1: #If result == 1 render portable success page 
+        
+        return render_template('potablesuccess.html')
+    else:
+        return render_template('potableunsuccess.html')
     
-    return render_template('portable.html' , result_str = result_str)
+@app.route('/Tips.html') #Flask route to render Tips
+def tips():
+    
+    return render_template('Tips.html')
 
-if __name__ == '__main__':
+@app.route('/Home.html') #Flask route to return to Home page
+def home1():
+    
+    return render_template('Home.html')
+
+if __name__ == '__main__': #Start the flask application with debugging
     
     app.run(debug=True)
     
