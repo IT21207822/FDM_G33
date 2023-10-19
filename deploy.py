@@ -1,6 +1,6 @@
 from flask import Flask , render_template , request
 import pickle #Importing the relevant Libraries
-import joblib
+import joblib as joblib
 import os
 
 
@@ -14,7 +14,10 @@ app = Flask(__name__ ) #Create Flask application Instance
 # model = pickle.load(open(file_path, 'rb'))#Loading the model
 
 # model = pickle.load(open('saved_model.pkl' , 'rb'))
-model = joblib.load('saved_model1.pkl')
+# model = joblib.load('saved_model1.pkl')
+model = joblib.load('saved_model1.joblib')
+
+
 
 # model = pickle.load(open('/home/Romold123/mysite/saved_model.sav', 'rb'))
 
