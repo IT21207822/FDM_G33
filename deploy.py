@@ -8,10 +8,12 @@ import os
 app = Flask(__name__ ) #Create Flask application Instance
 
 
-file_path = os.path.join(os.getcwd(), 'saved_model.pkl')
+# file_path = os.path.join(os.getcwd(), 'saved_model.pkl')
  
 # file_path1 =os.path.join(os.getcwd(), 'saved.sav') 
-model = pickle.load(open(file_path, 'rb'))#Loading the model
+# model = pickle.load(open(file_path, 'rb'))#Loading the model
+
+model = pickle.load(open('saved_model.pkl' , 'rb'))
 
 # model = pickle.load(open('/home/Romold123/mysite/saved_model.sav', 'rb'))
 
