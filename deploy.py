@@ -15,7 +15,8 @@ app = Flask(__name__ ) #Create Flask application Instance
 
 # model = pickle.load(open('saved_model.pkl' , 'rb'))
 # model = joblib.load('saved_model1.pkl')
-model = joblib.load('saved_model1.pkl')
+with open('saved_model1.pkl', 'rb') as file:
+    loaded_object = pickle.load(file)
 
 
 
